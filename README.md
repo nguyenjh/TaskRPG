@@ -1,3 +1,3 @@
 # TaskRPG
-Work in progress productivity app
-RPG themed
+- Work in progress productivity app
+- RPG themed
