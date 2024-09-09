@@ -23,6 +23,35 @@ body {
     width: 300px;
 }
 
+#gameboy-menu {
+    width: 150px;
+    background-color: #ffffff00;
+    padding: 10px;
+    text-align: center;
+}
+
+#menu-options {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-option {
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: #f8f2dc;
+    transition: background-color 0.2s ease;
+}
+
+.menu-option.highlighted {
+    background-color: #999;
+    color: white;
+}
+
+.menu-option:hover {
+    background-color: #ccc;
+}
+
 .herocontainer {
     display: flex;
     justify-content: center;

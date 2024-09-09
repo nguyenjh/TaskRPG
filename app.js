@@ -61,9 +61,38 @@ function removeTaskFromStorage(task) {
 }
 
 // --- Profile Photo Upload Function
-let profilePic = document.getElementById('profilePic');
-let inputFile = document.getElementById('inputFile');
+// let profilePic = document.getElementById('profilePic');
+// let inputFile = document.getElementById('inputFile');
 
-inputFile.onchange = function() {
-    profilePic.src = URL.createObjectURL(inputFile.files[0])
-}
+// inputFile.onchange = function() {
+//     profilePic.src = URL.createObjectURL(inputFile.files[0])
+// }
+
+// --- Menu Option Function
+const menuOptions = document.querySelectorAll('.menu-option');
+let currentIndex = 0;
+
+// Handle clicking on the menu option
+menuOptions.forEach(option => {
+    option.addEventListener('click', function () {
+        console.log(`Selected: ${option.textContent}`);
+        switch (option.textContent) {
+            case 'View Progress':
+                // Code to show Progress
+                alert('User Progress Screen');
+                break;
+            case 'To-Do Tasks':
+                // Scroll to To-Do List
+                document.getElementById('taskInput').scrollIntoView({ behavior: 'smooth' });
+                break;
+            case 'Shop':
+                // Code to open the shop
+                alert('Shop Screen');
+                break;
+            case 'Settings':
+                // Code to show settings
+                alert('Settings Screen');
+                break;
+        }
+    });
+});
