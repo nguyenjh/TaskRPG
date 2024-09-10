@@ -70,7 +70,8 @@ function removeTaskFromStorage(task) {
 
 // --- Menu Option Function
 const menuOptions = document.querySelectorAll('.menu-option');
-let currentIndex = 0;
+const viewTasksBtn = document.getElementById('viewTasksBtn');
+const taskContainer = document.getElementById('taskContainer');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -82,8 +83,8 @@ menuOptions.forEach(option => {
                 alert('User Progress Screen');
                 break;
             case 'To-Do Tasks':
-                // Scroll to To-Do List
-                document.getElementById('taskInput').scrollIntoView({ behavior: 'smooth' });
+                // Toggle visibility of the to-do list
+                taskContainer.classList.toggle('hidden');  // Add/remove the hidden class
                 break;
             case 'Shop':
                 // Code to open the shop

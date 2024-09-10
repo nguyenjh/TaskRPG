@@ -12,12 +12,12 @@
             <div class="hero">
                 <div class="card">
                     <div id="gameboy-menu">
-                        <ul id="menu-options">
-                            <li class="menu-option">View Progress</li>
-                            <li class="menu-option">To-Do Tasks</li>
-                            <li class="menu-option">Shop</li>
-                            <li class="menu-option">Settings</li>
-                        </ul>
+                        <div id="menu-options">
+                            <button class="menu-option">View Progress</button>
+                            <button class="menu-option" id="viewTasksBtn">To-Do Tasks</button>
+                            <button class="menu-option">Shop</button>
+                            <button class="menu-option">Settings</button>
+                        </div>
                     </div>
                     <!-- <h1>Adventurer</h1>
                     <img src="/images/default_profile.jpg" id="profilePic">
@@ -28,9 +28,21 @@
         </div>
 
         <div class="headerText">TaskRPG</div>
-        <input type="text" id="taskInput" placeholder="Enter a task">
-        <button id="addTaskBtn">Add Task</button>
-        <ul id="taskList"></ul>
+        <div id="dpad">
+            <button class="dpad-button" id="dpad-up">▲</button>
+            <div class="dpad-middle-row">
+                <button class="dpad-button" id="dpad-left">◀</button>
+                <button class="dpad-button" id="dpad-center">●</button>
+                <button class="dpad-button" id="dpad-right">▶</button>
+            </div>
+            <button class="dpad-button" id="dpad-down">▼</button>
+        </div>
+
+        <div id="taskContainer" class="hidden">
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button id="addTaskBtn">Add Task</button>
+            <ul id="taskList"></ul>
+        </div>
     </div>
 
     <script src="app.js"></script>

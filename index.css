@@ -34,6 +34,9 @@ body {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .menu-option {
@@ -41,11 +44,7 @@ body {
     cursor: pointer;
     background-color: #f8f2dc;
     transition: background-color 0.2s ease;
-}
-
-.menu-option.highlighted {
-    background-color: #999;
-    color: white;
+    border-radius: 5px;
 }
 
 .menu-option:hover {
@@ -121,6 +120,49 @@ body {
     margin-top: 10px;
     margin-bottom: 20px;
     color: #9E6240;
+}
+
+#dpad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.dpad-middle-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#dpad-center {
+    display: flex;
+    font-size: 28px;
+}
+
+.dpad-button {
+    width: 40px;
+    height: 40px;
+    background-color: #444;
+    border: 2px solid #333;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dpad-button:active {
+    background-color: #222;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#taskContainer {
+    opacity: 1;
 }
 
 #taskInput {
