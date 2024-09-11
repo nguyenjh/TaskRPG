@@ -122,6 +122,11 @@ body {
     color: #9E6240;
 }
 
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 #dpad {
     display: flex;
     flex-direction: column;
@@ -156,6 +161,35 @@ body {
     background-color: #222;
 }
 
+.ab {
+    display: flex;
+    padding: 10px;
+    gap: 25px;
+}
+
+.bContainer,.aContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bContainer {
+    margin-top: 12px;
+}
+
+.bBtn,.aBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #b22525;
+    border: 2px solid #992727;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bBtn:active,.aBtn:active {
+    background-color: #832727;
+}
 
 .hidden {
     display: none;
