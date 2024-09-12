@@ -97,3 +97,11 @@ menuOptions.forEach(option => {
         }
     });
 });
+
+// --- Menu Button
+const menuBtn = document.getElementById('menu-btn');
+const gameboyMenu = document.getElementById('gameboy-menu');
+
+menuBtn.addEventListener('click', function () {
+    gameboyMenu.classList.toggle('hidden');
+});
