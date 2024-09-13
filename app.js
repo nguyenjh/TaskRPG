@@ -61,12 +61,12 @@ function removeTaskFromStorage(task) {
 }
 
 // --- Profile Photo Upload Function
-// let profilePic = document.getElementById('profilePic');
-// let inputFile = document.getElementById('inputFile');
+let profilePic = document.getElementById('profilePic');
+let inputFile = document.getElementById('inputFile');
 
-// inputFile.onchange = function() {
-//     profilePic.src = URL.createObjectURL(inputFile.files[0])
-// }
+inputFile.onchange = function() {
+    profilePic.src = URL.createObjectURL(inputFile.files[0])
+}
 
 // --- Menu Option Function
 const menuOptions = document.querySelectorAll('.menu-option');
