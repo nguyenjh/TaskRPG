@@ -68,10 +68,22 @@ inputFile.onchange = function() {
     profilePic.src = URL.createObjectURL(inputFile.files[0])
 }
 
+// --- Menu Button
+const menuBtn = document.getElementById('menu-btn');
+const gameboyMenu = document.getElementById('gameboy-menu');
+
+menuBtn.addEventListener('click', function () {
+    if (progressContainer.classList != 'hidden') {
+        progressContainer.classList.toggle('hidden');
+    }
+    gameboyMenu.classList.toggle('hidden');
+});
+
 // --- Menu Option Function
 const menuOptions = document.querySelectorAll('.menu-option');
 const viewTasksBtn = document.getElementById('viewTasksBtn');
 const taskContainer = document.getElementById('taskContainer');
+const progressContainer = document.getElementById('progressContainer');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -80,7 +92,8 @@ menuOptions.forEach(option => {
         switch (option.textContent) {
             case 'View Progress':
                 // Code to show Progress
-                alert('User Progress Screen');
+                gameboyMenu.classList.toggle('hidden');
+                progressContainer.classList.toggle('hidden');
                 break;
             case 'To-Do Tasks':
                 // Toggle visibility of the to-do list
@@ -96,12 +109,4 @@ menuOptions.forEach(option => {
                 break;
         }
     });
-});
-
-// --- Menu Button
-const menuBtn = document.getElementById('menu-btn');
-const gameboyMenu = document.getElementById('gameboy-menu');
-
-menuBtn.addEventListener('click', function () {
-    gameboyMenu.classList.toggle('hidden');
 });
