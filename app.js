@@ -10,21 +10,24 @@ addTaskBtn.addEventListener('click', addTask);
 
 function addTask() {
     const task = taskInput.value;
-    
+    const exp = expPerTask; // Use default EXP value
+
     if (task) {
         const tasks = getTasksFromStorage();
-        tasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));  // Save to localStorage
-        addTaskToDOM(task);
-        // Clear input field
-        taskInput.value = '';
+        tasks.push({ task, exp });  // Store as object in localStorage
+        localStorage.setItem('tasks', JSON.stringify(tasks));  // Save updated tasks list
+
+        addTaskToDOM(task, exp);    // Add task to the DOM
+        taskInput.value = '';  // Clear the input field
+    } else {
+        alert('Please enter a task.');
     }
 }
 
 // Load tasks from localStorage into DOM
 function loadTasks() {
     const tasks = getTasksFromStorage();
-    tasks.forEach(task => addTaskToDOM(task));
+    tasks.forEach(item => addTaskToDOM(item.task, item.exp));
 }
 
 // Helper function to get tasks from localStorage
@@ -34,29 +37,55 @@ function getTasksFromStorage() {
 }
 
 // Helper function to add task to DOM
-function addTaskToDOM(task) {
+function addTaskToDOM(task, exp) {
     const li = document.createElement('li');
-    li.textContent = task;
+    li.textContent = `${task} (EXP: ${exp})`;  // Show the task and EXP together
     taskList.appendChild(li);
 }
 
 // Add event listener for deleting tasks
-taskList.addEventListener('click', removeTask);
+taskList.addEventListener('click', completeTask);
 
-function removeTask(e) {
+// How much EXP is given per completed task
+const expPerTask = 10;
+
+// Remove Task and Update EXP Points
+function completeTask(e) {
     if (e.target.tagName === 'LI') {
-        const task = e.target.textContent;
+        const taskText = e.target.textContent.split(' (EXP:')[0];
         // Remove from DOM
         e.target.remove();
         // Remove from localStorage
-        removeTaskFromStorage(task);
+        removeTaskFromStorage(taskText);
+        awardEXP(expPerTask);
     }
 }
 
+function awardEXP(exp) {
+    let currEXP = getEXPFromStorage();
+    currEXP += exp;
+    localStorage.setItem('exp', currEXP);
+    updateEXPDisplay();
+}
+
+// Helper function to get EXP amount from localStorage
+function getEXPFromStorage() {
+    let exp = localStorage.getItem('exp');
+    return exp ? parseInt(exp) : 0;
+}
+
+function updateEXPDisplay() {
+    const expDisplay = document.getElementById('expDisplay');
+    const currEXP = getEXPFromStorage();
+    expDisplay.textContent = `EXP: ${currEXP}`;
+}
+
+document.addEventListener('DOMContentLoaded', updateEXPDisplay);
+
 // Helper function to remove task from localStorage
-function removeTaskFromStorage(task) {
+function removeTaskFromStorage(taskText) {
     const tasks = getTasksFromStorage();
-    const updatedTasks = tasks.filter(t => t !== task);
+    const updatedTasks = tasks.filter(item => item.task !== taskText);
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 }
 

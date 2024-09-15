@@ -85,10 +85,11 @@ body {
 
 .card h1 {
     font-size: 20px;
-    color: #9E6240;
+    color: white;
     margin-bottom: 10px;
     font-weight: bold;
     margin-top: 0;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .card img {
@@ -102,24 +103,33 @@ body {
     width: 130px;
     background: #9E6240;
     color: white;
-    padding: 5px;
+    padding: 4px;
     margin: 10px auto;
     margin-bottom: 0;
-    margin-top: 15px;
+    margin-top: 8px;
     font-size: 12px;
     border-radius: 5px;
     cursor: pointer;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .card input {
     display: none;
 }
 
+.card h2 {
+    font-size: 20px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 1px #000000;
+}
+
 .headerText {
     font-size: 24px;
     margin-top: 10px;
     margin-bottom: 20px;
-    color: #9E6240;
+    color: black;
 }
 
 .btnContainer {
