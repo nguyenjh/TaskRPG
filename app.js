@@ -93,9 +93,36 @@ function removeTaskFromStorage(taskText) {
 let profilePic = document.getElementById('profilePic');
 let inputFile = document.getElementById('inputFile');
 
+// Load the saved image from localStorage on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const storedImage = localStorage.getItem('profileImage');
+    if (storedImage) {
+        // set img source as the saved image
+        profilePic.src = storedImage;
+    }
+});
+
+// Handle img upload and save to localStorage
 inputFile.onchange = function() {
-    profilePic.src = URL.createObjectURL(inputFile.files[0])
-}
+    const file = inputFile.files[0];
+    const reader = new FileReader();
+
+    // Convert the uploaded file to Base64
+    reader.onloadend = function() {
+        // Base64 string of the image
+        const base64String = reader.result;
+        // set the profile picture to the uploaded image
+        profilePic.src = base64String;
+        // save img to localStorage
+        localStorage.setItem('profileImage', base64String);
+    };
+
+    // read img file as a Data URL (Base64)
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+};
+
 
 // --- Menu Button
 const menuBtn = document.getElementById('menu-btn');
