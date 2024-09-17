@@ -10,15 +10,19 @@ addTaskBtn.addEventListener('click', addTask);
 
 function addTask() {
     const task = taskInput.value;
-    const exp = expPerTask; // Use default EXP value
+    const exp = expPerTask; 
 
     if (task) {
         const tasks = getTasksFromStorage();
-        tasks.push({ task, exp });  // Store as object in localStorage
-        localStorage.setItem('tasks', JSON.stringify(tasks));  // Save updated tasks list
+        // Store as object in localStorage
+        tasks.push({ task, exp });  
+        // Save updated tasks list
+        localStorage.setItem('tasks', JSON.stringify(tasks));  
 
-        addTaskToDOM(task, exp);    // Add task to the DOM
-        taskInput.value = '';  // Clear the input field
+        // Add task to the DOM
+        addTaskToDOM(task, exp);  
+        // Clear the input field  
+        taskInput.value = ''; 
     } else {
         alert('Please enter a task.');
     }
@@ -39,7 +43,8 @@ function getTasksFromStorage() {
 // Helper function to add task to DOM
 function addTaskToDOM(task, exp) {
     const li = document.createElement('li');
-    li.textContent = `${task} (EXP: ${exp})`;  // Show the task and EXP together
+    // Show the task and EXP together
+    li.textContent = `${task} (EXP: ${exp})`;
     taskList.appendChild(li);
 }
 
@@ -140,6 +145,7 @@ const menuOptions = document.querySelectorAll('.menu-option');
 const viewTasksBtn = document.getElementById('viewTasksBtn');
 const taskContainer = document.getElementById('taskContainer');
 const progressContainer = document.getElementById('progressContainer');
+const btnContainer = document.querySelector('.btnContainer');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -153,7 +159,8 @@ menuOptions.forEach(option => {
                 break;
             case 'To-Do Tasks':
                 // Toggle visibility of the to-do list
-                taskContainer.classList.toggle('hidden');  // Add/remove the hidden class
+                taskContainer.classList.toggle('hidden');
+                btnContainer.classList.toggle('hidden');
                 break;
             case 'Shop':
                 // Code to open the shop
