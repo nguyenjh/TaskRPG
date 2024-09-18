@@ -15,7 +15,7 @@
                         <div id="menu-options">
                             <button id="progressButton" class="menu-option">View Progress</button>
                             <button class="menu-option" id="viewTasksBtn">To-Do Tasks</button>
-                            <button class="menu-option">Shop</button>
+                            <button class="menu-option" id="shopBtn">Shop</button>
                             <button class="menu-option">Settings</button>
                         </div>
                     </div>
@@ -64,6 +64,24 @@
             <input type="text" id="taskInput" placeholder="Enter a task">
             <button id="addTaskBtn">Add Task</button>
             <ul id="taskList"></ul>
+        </div>
+
+        <div id="shopContainer" class="hidden">
+            <div class="shopItems">
+                <h2>Shop</h2>
+                <div id="shopItems">
+                    <div class="shop-item">
+                        <p>City Skyline Background</p>
+                        <p>(Cost: 50 EXP)</p>
+                        <button class="buyBtn" data-cost="50" data-item="City_Skyline_Background">Buy</button>
+                    </div>
+                    <div class="shop-item">
+                        <p>Mountain Range Background</p>
+                        <p>(Cost: 50 EXP)</p>
+                        <button class="buyBtn" data-cost="50" data-item="Mountain_Range_Background">Buy</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

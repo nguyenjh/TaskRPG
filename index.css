@@ -291,3 +291,42 @@ li {
 li:hover {
     background-color: #e0f7fa;
 }
+
+.shopItems {
+    border: 5px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.shopItems h2 {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+.shopItems p {
+    font-size: 15px;
+}
+
+.shop-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.buyBtn {
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: #f8f2dc;
+    transition: background-color 0.2s ease;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+
+.buyBtn:hover {
+    background-color: #ccc;
+}

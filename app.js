@@ -146,6 +146,9 @@ const viewTasksBtn = document.getElementById('viewTasksBtn');
 const taskContainer = document.getElementById('taskContainer');
 const progressContainer = document.getElementById('progressContainer');
 const btnContainer = document.querySelector('.btnContainer');
+const shopContainer = document.getElementById('shopContainer');
+const shopBtn = document.getElementById('shopBtn');
+const buyBtns = document.querySelectorAll('.buyBtn');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -159,12 +162,25 @@ menuOptions.forEach(option => {
                 break;
             case 'To-Do Tasks':
                 // Toggle visibility of the to-do list
+                if (shopContainer.classList != 'hidden') {
+                    shopContainer.classList.toggle('hidden');
+                    btnContainer.classList.toggle('hidden');
+                }
+                if (btnContainer.classList != 'hidden') {
+                    btnContainer.classList.toggle('hidden');
+                }
                 taskContainer.classList.toggle('hidden');
-                btnContainer.classList.toggle('hidden');
                 break;
             case 'Shop':
                 // Code to open the shop
-                alert('Shop Screen');
+                if (taskContainer.classList != 'hidden') {
+                    taskContainer.classList.toggle('hidden');
+                    btnContainer.classList.toggle('hidden');
+                }
+                if (btnContainer.classList != 'hidden') {
+                    btnContainer.classList.toggle('hidden');
+                }
+                shopContainer.classList.toggle('hidden');
                 break;
             case 'Settings':
                 // Code to show settings
@@ -172,4 +188,55 @@ menuOptions.forEach(option => {
                 break;
         }
     });
+});
+
+// Handle buying items
+buyBtns.forEach(button => {
+    button.addEventListener('click', function() {
+        const itemCost = parseInt(this.getAttribute('data-cost'));
+        const itemName = this.getAttribute('data-item');
+        
+        // get the current EXP from localStorage
+        let currentEXP = getEXPFromStorage();  
+
+        // check if user has enough EXP
+        if (currentEXP >= itemCost) {
+            // deduct cost and update EXP
+            currentEXP -= itemCost;
+            localStorage.setItem('exp', currentEXP);
+            // update EXP display
+            updateEXPDisplay();  
+
+            // apply purchased customization
+            applyCustomization(itemName);
+
+            alert(`You bought ${itemName}!`);
+        } else {
+            alert('Not enough EXP!');
+        }
+    });
+});
+
+// Helper function to apply the customization
+function applyCustomization(itemName) {
+    switch (itemName) {
+        case 'City_Skyline_Background':
+            document.body.style.backgroundImage = "url('/images/city_parallax_background_with_buildings_pixel_art/10.png')";
+            localStorage.setItem('background', 'City_Skyline_Background');
+            break;
+        case 'Mountain_Range_Background':
+            document.body.style.backgroundImage = "url('/images/nature_landscape_pixel_background/Background/origbig.png')";
+            localStorage.setItem('background', 'Mountain_Range_Background');
+            break;
+        // add more cases for other items later on
+    }
+}
+
+// Load saved customizations on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedBackground = localStorage.getItem('background');
+    if (savedBackground) {
+        // apply the saved background or theme purchased
+        applyCustomization(savedBackground);  
+    }
 });
