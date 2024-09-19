@@ -149,6 +149,8 @@ const btnContainer = document.querySelector('.btnContainer');
 const shopContainer = document.getElementById('shopContainer');
 const shopBtn = document.getElementById('shopBtn');
 const buyBtns = document.querySelectorAll('.buyBtn');
+const settingsContainer = document.getElementById('settingsContainer');
+const settingsBtn = document.getElementById('settingsBtn');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -166,6 +168,10 @@ menuOptions.forEach(option => {
                     shopContainer.classList.toggle('hidden');
                     btnContainer.classList.toggle('hidden');
                 }
+                if (settingsContainer.classList != 'hidden') {
+                    settingsContainer.classList.toggle('hidden');
+                    btnContainer.classList.toggle('hidden');
+                }
                 if (btnContainer.classList != 'hidden') {
                     btnContainer.classList.toggle('hidden');
                 }
@@ -177,6 +183,10 @@ menuOptions.forEach(option => {
                     taskContainer.classList.toggle('hidden');
                     btnContainer.classList.toggle('hidden');
                 }
+                if (settingsContainer.classList != 'hidden') {
+                    settingsContainer.classList.toggle('hidden');
+                    btnContainer.classList.toggle('hidden');
+                }
                 if (btnContainer.classList != 'hidden') {
                     btnContainer.classList.toggle('hidden');
                 }
@@ -184,7 +194,18 @@ menuOptions.forEach(option => {
                 break;
             case 'Settings':
                 // Code to show settings
-                alert('Settings Screen');
+                if (taskContainer.classList != 'hidden') {
+                    taskContainer.classList.toggle('hidden');
+                    btnContainer.classList.toggle('hidden');
+                }
+                if (shopContainer.classList != 'hidden') {
+                    shopContainer.classList.toggle('hidden');
+                    btnContainer.classList.toggle('hidden');
+                }
+                if (btnContainer.classList != 'hidden') {
+                    btnContainer.classList.toggle('hidden');
+                }
+                settingsContainer.classList.toggle('hidden');
                 break;
         }
     });
@@ -227,6 +248,10 @@ function applyCustomization(itemName) {
         case 'Mountain_Range_Background':
             document.body.style.backgroundImage = "url('/images/nature_landscape_pixel_background/Background/origbig.png')";
             localStorage.setItem('background', 'Mountain_Range_Background');
+            break;
+        case 'Default_Background':
+            document.body.style.backgroundImage = "url('/images/simple_natural_landscape_pixel_art_background/origbig.png')";
+            localStorage.setItem('background', 'Default_Background');
             break;
         // add more cases for other items later on
     }
