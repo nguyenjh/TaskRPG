@@ -218,22 +218,34 @@ buyBtns.forEach(button => {
         const itemName = this.getAttribute('data-item');
         
         // get the current EXP from localStorage
-        let currentEXP = getEXPFromStorage();  
+        let currentEXP = getEXPFromStorage();
+        let purchasedItems = getPurchasedItemsFromStorage();  
 
-        // check if user has enough EXP
-        if (currentEXP >= itemCost) {
-            // deduct cost and update EXP
-            currentEXP -= itemCost;
-            localStorage.setItem('exp', currentEXP);
-            // update EXP display
-            updateEXPDisplay();  
-
-            // apply purchased customization
+        // checks if user has purchased item before
+        if (purchasedItems.includes(itemName)) {
+            // allow the user to select item for free
             applyCustomization(itemName);
-
-            alert(`You bought ${itemName}!`);
+            alert(`You have already purchased ${itemName}. Switching to it for free!`);
         } else {
-            alert('Not enough EXP!');
+        // check if user has enough EXP
+            if (currentEXP >= itemCost) {
+                // deduct cost and update EXP
+                currentEXP -= itemCost;
+                localStorage.setItem('exp', currentEXP);
+                // update EXP display
+                updateEXPDisplay();  
+
+                // add the item to the purchased items array
+                purchasedItems.push(itemName);
+                localStorage.setItem('purchasedItems', JSON.stringify(purchasedItems));
+
+                // apply purchased customization
+                applyCustomization(itemName);
+
+                alert(`You bought ${itemName}!`);
+            } else {
+                alert('Not enough EXP!');
+            }
         }
     });
 });
@@ -255,6 +267,13 @@ function applyCustomization(itemName) {
             break;
         // add more cases for other items later on
     }
+}
+
+// Helper function to get purchased items from localStorage
+function getPurchasedItemsFromStorage() {
+    let purchasedItems = localStorage.getItem('purchasedItems');
+    // return empty array if no item purchased
+    return purchasedItems ? JSON.parse(purchasedItems) : [];
 }
 
 // Load saved customizations on page load
