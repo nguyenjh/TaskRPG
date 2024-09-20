@@ -319,6 +319,10 @@ li:hover {
     margin-right: 15px;
 }
 
+.settings-item {
+    margin-left: 15px;
+}
+
 .buyBtn {
     padding: 10px 10px;
     cursor: pointer;
@@ -328,6 +332,15 @@ li:hover {
     margin-left: 15px;
 }
 
-.buyBtn:hover {
+#creditsBtn {
+    padding: 10px 14px;
+    cursor: pointer;
+    background-color: #f8f2dc;
+    transition: background-color 0.2s ease;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+
+.buyBtn:hover,#creditsBtn:hover {
     background-color: #ccc;
 }

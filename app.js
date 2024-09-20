@@ -225,7 +225,7 @@ buyBtns.forEach(button => {
         if (purchasedItems.includes(itemName)) {
             // allow the user to select item for free
             applyCustomization(itemName);
-            alert(`You have already purchased ${itemName}. Switching to it for free!`);
+            alert(`You have already purchased ${itemName}.\nSwitching to it for free!`);
         } else {
         // check if user has enough EXP
             if (currentEXP >= itemCost) {
@@ -284,3 +284,10 @@ document.addEventListener('DOMContentLoaded', function() {
         applyCustomization(savedBackground);  
     }
 });
+
+const creditsBtn = document.getElementById('creditsBtn');
+
+// Credits button
+creditsBtn.addEventListener('click', function() {
+    alert("Creator: Julie Nguyen\n─── ⋆⋅☆⋅⋆ ───\nArt Credits (all sourced from OpenGameArt.org):\n - CraftPix.net 2D Game Assets\n - Killyoverdrive");
+})
