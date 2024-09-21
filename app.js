@@ -253,6 +253,10 @@ buyBtns.forEach(button => {
 // Helper function to apply the customization
 function applyCustomization(itemName) {
     switch (itemName) {
+        case 'Default_Background':
+            document.body.style.backgroundImage = "url('/images/simple_natural_landscape_pixel_art_background/origbig.png')";
+            localStorage.setItem('background', 'Default_Background');
+            break;
         case 'City_Skyline_Background':
             document.body.style.backgroundImage = "url('/images/city_parallax_background_with_buildings_pixel_art/10.png')";
             localStorage.setItem('background', 'City_Skyline_Background');
@@ -261,9 +265,9 @@ function applyCustomization(itemName) {
             document.body.style.backgroundImage = "url('/images/nature_landscape_pixel_background/Background/origbig.png')";
             localStorage.setItem('background', 'Mountain_Range_Background');
             break;
-        case 'Default_Background':
-            document.body.style.backgroundImage = "url('/images/simple_natural_landscape_pixel_art_background/origbig.png')";
-            localStorage.setItem('background', 'Default_Background');
+        case 'Grey_Forest_Background':
+            document.body.style.backgroundImage = "url('/images/grey_forest_landscape.jpg')";
+            localStorage.setItem('background', 'Grey_Forest_Background');
             break;
         // add more cases for other items later on
     }
@@ -289,5 +293,5 @@ const creditsBtn = document.getElementById('creditsBtn');
 
 // Credits button
 creditsBtn.addEventListener('click', function() {
-    alert("Creator: Julie Nguyen\n─── ⋆⋅☆⋅⋆ ───\nArt Credits (all sourced from OpenGameArt.org):\n - CraftPix.net 2D Game Assets\n - Killyoverdrive");
+    alert("Creator: Julie Nguyen\n─── ⋆⋅☆⋅⋆ ───\nArt Credits (all sourced from OpenGameArt.org):\n - CraftPix.net 2D Game Assets\n - Killyoverdrive\n - Jkjkke");
 })
