@@ -333,6 +333,18 @@ li:hover {
     margin-left: 15px;
 }
 
+#backgroundsBtn, #themesBtn {
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: #f8f2dc;
+    transition: background-color 0.2s ease;
+    border-radius: 5px;
+}
+
+#backgroundsBtn:hover, #themesBtn:hover {
+    background-color: #ccc;
+}
+
 #creditsBtn {
     padding: 10px 14px;
     cursor: pointer;

@@ -151,6 +151,8 @@ const shopBtn = document.getElementById('shopBtn');
 const buyBtns = document.querySelectorAll('.buyBtn');
 const settingsContainer = document.getElementById('settingsContainer');
 const settingsBtn = document.getElementById('settingsBtn');
+const backgroundsBtn = document.getElementById('backgroundsBtn');
+const backgroundsItems = document.getElementById('backgroundsItems');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -209,6 +211,11 @@ menuOptions.forEach(option => {
                 break;
         }
     });
+});
+
+// Toggles shop's backgrounds category
+backgroundsBtn.addEventListener('click', function () {
+    backgroundsItems.classList.toggle('hidden');
 });
 
 // Handle buying items
