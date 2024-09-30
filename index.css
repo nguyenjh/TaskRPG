@@ -288,6 +288,7 @@ li {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: black;
 }
 
 li:hover {
@@ -356,4 +357,19 @@ li:hover {
 
 .buyBtn:hover,#creditsBtn:hover {
     background-color: #ccc;
+}
+
+.container.sci-fi {
+    background-color: #222;
+    border: 2px solid #00ffcc;
+    color: white;
+}
+
+.card.sci-fi {
+    background-image: url('/images/sci_fi_space_planet/Red\ Planet_2.png');
+    border: 2px solid #00ffcc;
+}
+
+.headerText.sci-fi {
+    color: white;
 }

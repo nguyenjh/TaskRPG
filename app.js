@@ -153,6 +153,8 @@ const settingsContainer = document.getElementById('settingsContainer');
 const settingsBtn = document.getElementById('settingsBtn');
 const backgroundsBtn = document.getElementById('backgroundsBtn');
 const backgroundsItems = document.getElementById('backgroundsItems');
+const themesBtn = document.getElementById('themesBtn');
+const themesItems = document.getElementById('themesItems');
 
 // Handle clicking on the menu option
 menuOptions.forEach(option => {
@@ -215,7 +217,18 @@ menuOptions.forEach(option => {
 
 // Toggles shop's backgrounds category
 backgroundsBtn.addEventListener('click', function () {
+    if (themesItems.classList != 'hidden') {
+        themesItems.classList.toggle('hidden');
+    }
     backgroundsItems.classList.toggle('hidden');
+});
+
+// Toggles shop's themes category
+themesBtn.addEventListener('click', function () {
+    if (backgroundsItems.classList != 'hidden') {
+        backgroundsItems.classList.toggle('hidden');
+    }
+    themesItems.classList.toggle('hidden');
 });
 
 // Handle buying items
@@ -259,6 +272,15 @@ buyBtns.forEach(button => {
 
 // Helper function to apply the customization
 function applyCustomization(itemName) {
+    const gameboy = document.querySelector('.container');
+    const gameboyScreen = document.querySelector('.card');
+    const gameboyText = document.querySelector('.headerText');
+
+    // Remove all theme classes to reset styles
+    gameboy.classList.remove('sci-fi');
+    gameboyScreen.classList.remove('sci-fi');
+    gameboyText.classList.remove('sci-fi');
+
     switch (itemName) {
         case 'Default_Background':
             document.body.style.backgroundImage = "url('/images/simple_natural_landscape_pixel_art_background/origbig.png')";
@@ -275,6 +297,13 @@ function applyCustomization(itemName) {
         case 'Grey_Forest_Background':
             document.body.style.backgroundImage = "url('/images/grey_forest_landscape.jpg')";
             localStorage.setItem('background', 'Grey_Forest_Background');
+            break;
+        case 'Sci_Fi_Theme':
+            gameboy.classList.add('sci-fi');  // Change Gameboy's appearance
+            gameboyScreen.classList.add('sci-fi');  // Change the Gameboy screen's background
+            gameboyText.classList.add('sci-fi');
+            document.body.style.backgroundImage = "url('/images/space_background/space_background.png')";
+            localStorage.setItem('background', 'Sci_Fi_Theme');
             break;
         // add more cases for other items later on
     }
@@ -300,5 +329,5 @@ const creditsBtn = document.getElementById('creditsBtn');
 
 // Credits button
 creditsBtn.addEventListener('click', function() {
-    alert("Creator: Julie Nguyen\n─── ⋆⋅☆⋅⋆ ───\nArt Credits (all sourced from OpenGameArt.org):\n - CraftPix.net 2D Game Assets\n - Killyoverdrive\n - Jkjkke");
+    alert("Creator: Julie Nguyen\n─── ⋆⋅☆⋅⋆ ───\nArt Credits (all sourced from OpenGameArt.org):\n - CraftPix.net 2D Game Assets\n - Killyoverdrive\n - Jkjkke\n - Ansimuz\n - Bonsaiheldin");
 })
